@@ -1,0 +1,5 @@
+{
+    "language": "npm test",
+    "version": "29.7.0",
+    "aliases": ["javascript-test", "js-test", "npm test", "node test"]
+}

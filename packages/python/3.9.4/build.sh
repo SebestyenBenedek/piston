@@ -18,4 +18,5 @@ cd ..
 
 rm -rf build 
 
-bin/pip3 install numpy scipy pandas pycrypto whoosh bcrypt passlib sympy
+bin/pip3 install numpy scipy pandas pycrypto whoosh bcrypt passlib sympy pytest==8.2.2
+pytest==8.2.2

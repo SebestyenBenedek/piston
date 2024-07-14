@@ -48,6 +48,7 @@ done
 cd /piston/repo
 echo "Creating index"
 ./mkindex.sh
+./custom-piston.sh
 echo "Index created"
 
 if [[ $SERVER -eq 1 ]]; then

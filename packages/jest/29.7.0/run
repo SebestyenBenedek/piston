@@ -1,0 +1,7 @@
+#!/bin/bash
+
+npm init -y
+
+npm set-script test "jest"
+
+npm test "$@"
