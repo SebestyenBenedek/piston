@@ -54,6 +54,12 @@ git clone https://github.com/engineer-man/piston
 # Start the containers
 ./piston start
 
+# Make custom-piston.sh runable
+chmod +x custom-piston.sh
+
+#Run the configuration file
+./custom-piston.sh
+
 # Install all the dependencies for the cli
 cd cli && npm i && cd -
 ```
