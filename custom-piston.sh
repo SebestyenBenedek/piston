@@ -13,13 +13,13 @@ packages=(
 )
 
 # Build packages
-cd /piston/packages/
+cd ./packages/
 for pkg in "${packages[@]}"; do
   make "$pkg"
 done
 
 # Build piston packages
-cd /piston
+cd ..
 for pkg in "${packages[@]}"; do
   name_version="${pkg%.pkg.tar.gz}"
   name="${name_version%-*}"
@@ -28,6 +28,6 @@ for pkg in "${packages[@]}"; do
 done
 
 # Append new index content to existing index file
-cd /piston/repo
+cd ./repo/
 sudo wget https://github.com/engineer-man/piston/releases/download/pkgs/index -O original-index
-sudo cat original-index | sudo tee -a index > /dev/null
+grep -vE 'python-[0-9]+\.[0-9]+\.[0-9]+\.pkg\.tar\.gz' original-index | sudo tee -a index > /dev/null

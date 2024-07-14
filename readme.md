@@ -1,79 +1,11 @@
-<h1 align="center">
-    <a href="https://github.com/engineer-man/piston">
-        <img src="var/docs/images/piston.svg" valign="middle" width="58" height="58" alt="engineer-man piston" />
-    </a>
-    <span valign="middle">
-        Piston
-    </span>
-</h1>
-
-<h3 align="center">A high performance general purpose code execution engine.</h3>
-
-<br>
-
-<p align="center">
-    <a href="https://github.com/engineer-man/piston/commits/master">
-    <img src="https://img.shields.io/github/last-commit/engineer-man/piston.svg?style=for-the-badge&logo=github&logoColor=white"
-         alt="GitHub last commit">
-    <a href="https://github.com/engineer-man/piston/issues">
-    <img src="https://img.shields.io/github/issues/engineer-man/piston.svg?style=for-the-badge&logo=github&logoColor=white"
-         alt="GitHub issues">
-    <a href="https://github.com/engineer-man/piston/pulls">
-    <img src="https://img.shields.io/github/issues-pr-raw/engineer-man/piston.svg?style=for-the-badge&logo=github&logoColor=white"
-         alt="GitHub pull requests">
-</p>
-
----
-
-<h4 align="center">
-  <a href="#About">About</a> •
-  <a href="#Public-API">Public API</a> •
-  <a href="#Getting-Started">Getting Started</a> •
-  <a href="#Usage">Usage</a> •
-  <a href="#Supported-Languages">Supported Languages</a> •
-  <a href="#Principle-of-Operation">Principles</a> •
-  <a href="#Security">Security</a> •
-  <a href="#License">License</a> •
-  <a href="https://piston.readthedocs.io">Documentation</a>
-</h4>
-
----
-
 <br>
 
 # About
 
 <h4>
-    Piston is a high performance general purpose code execution engine. It excels at running untrusted and
-    possibly malicious code without fear from any harmful effects.
+    This is a modified version of Piston, which is a high performance general purpose code execution engine. The configuration includes a way to be able to execute two testing frameworks, pytest (python) and jest (javascript). I have created this project as homework. 
 </h4>
 
-<br>
-
-It's used in numerous places including:
-
--   [EMKC Challenges](https://emkc.org/challenges)
--   [EMKC Weekly Contests](https://emkc.org/contests)
--   [Engineer Man Discord Server](https://discord.gg/engineerman)
--   Web IDEs
--   200+ direct integrations
-
-<br>
-
-### Official Extensions
-
-The following are approved and endorsed extensions/utilities to the core Piston offering.
-
--   [I Run Code](https://github.com/engineer-man/piston-bot), a Discord bot used in 4100+ servers to handle arbitrary code evaluation in Discord. To get this bot in your own server, go here: https://emkc.org/run.
--   [Piston CLI](https://github.com/Shivansh-007/piston-cli), a universal shell supporting code highlighting, files, and interpretation without the need to download a language.
--   [Node Piston Client](https://github.com/dthree/node-piston), a Node.js wrapper for accessing the Piston API.
--   [Piston4J](https://github.com/the-codeboy/Piston4J), a Java wrapper for accessing the Piston API.
--   [Pyston](https://github.com/ffaanngg/pyston), a Python wrapper for accessing the Piston API.
--   [Go-Piston](https://github.com/milindmadhukar/go-piston), a Golang wrapper for accessing the Piston API.
--   [piston_rs](https://github.com/Jonxslays/piston_rs), a Rust wrapper for accessing the Piston API.
--   [piston_rspy](https://github.com/Jonxslays/piston_rspy), Python bindings for accessing the Piston API via `piston_rs`.
-
-<br>
 
 # Public API
 
@@ -116,8 +48,11 @@ git clone https://github.com/engineer-man/piston
 ### Installation
 
 ```sh
-# Start the API container
-docker-compose up -d api
+#Change to development mode
+./piston select dev
+
+# Start the containers
+./piston start
 
 # Install all the dependencies for the cli
 cd cli && npm i && cd -
@@ -125,39 +60,6 @@ cd cli && npm i && cd -
 
 The API will now be online with no language runtimes installed. To install runtimes, [use the CLI](#cli).
 
-## Just Piston (no CLI)
-
-### Host System Package Dependencies
-
--   Docker
-
-### Installation
-
-```sh
-docker run \
-    -v $PWD:'/piston' \
-    --tmpfs /piston/jobs \
-    -dit \
-    -p 2000:2000 \
-    --name piston_api \
-    ghcr.io/engineer-man/piston
-```
-
-## Piston for testing packages locally
-
-### Host System Package Dependencies
-
--   Same as [All In One](#All-In-One)
-
-### Installation
-
-```sh
-# Build the Docker containers
-./piston start
-
-# For more help
-./piston help
-```
 
 <br>
 
@@ -188,12 +90,6 @@ echo 'print("Hello world!")' > test.py
 cli/index.js run python test.py -l 3.9.4
 cli/index.js run python test.py -l 3.x
 cli/index.js run python test.py -l 3
-```
-
-If you are operating on a remote machine, add the `-u` flag like so:
-
-```sh
-cli/index.js -u http://piston.server:2000 ppman list
 ```
 
 ### API
