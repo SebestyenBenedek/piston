@@ -3,7 +3,13 @@
 # About
 
 <h4>
-    This is a modified version of Piston, which is a high performance general purpose code execution engine. The configuration includes a way to be able to execute two testing frameworks, pytest (python) and jest (javascript). I have created this project as homework. 
+    This is a modified version of Piston, which is a high performance general purpose code execution engine. The configuration includes a way to be able to execute two testing frameworks, pytest (python) and jest (javascript). I have created this project as homework. Right now this project only includes python version: 3.12.0, if you want to run any more versions of python you can add any of the following ones in the /custom-piston.sh file into the packages array:
+    - "python-2.7.18.pkg.tar.gz"
+    - "python-3.5.10.pkg.tar.gz"
+    - "python-3.9.1.pkg.tar.gz"
+    - "python-3.9.4.pkg.tar.gz"
+    - "python-3.10.0.pkg.tar.gz"
+    - "python-3.11.0.pkg.tar.gz" 
 </h4>
 
 
@@ -62,6 +68,9 @@ chmod +x custom-piston.sh
 
 # Install all the dependencies for the cli
 cd cli && npm i && cd -
+
+# Test packages if they work
+./piston run [package] -l [version] packages/[package]/[version]/test.*
 ```
 
 The API will now be online with no language runtimes installed. To install runtimes, [use the CLI](#cli).

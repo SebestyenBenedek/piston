@@ -3,12 +3,6 @@
 # Array of packages to build
 packages=(
   "jest-29.7.0.pkg.tar.gz"
-  "python-2.7.18.pkg.tar.gz"
-  "python-3.5.10.pkg.tar.gz"
-  "python-3.9.1.pkg.tar.gz"
-  "python-3.9.4.pkg.tar.gz"
-  "python-3.10.0.pkg.tar.gz"
-  "python-3.11.0.pkg.tar.gz"
   "python-3.12.0.pkg.tar.gz"
 )
 
