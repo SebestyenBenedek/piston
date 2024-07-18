@@ -48,7 +48,7 @@ POST https://emkc.org/api/v2/piston/execute
 
 ```sh
 # clone and enter repo
-git clone https://github.com/engineer-man/piston
+git clone https://github.com/SebestyenBenedek/piston.git
 ```
 
 ### Installation
